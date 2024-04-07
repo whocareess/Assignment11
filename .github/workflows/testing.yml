@@ -1,17 +1,17 @@
 name: Testing
 
-on:[push]
+on: [push]
 
 jobs:
   running-tests:
-  build:
+  
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: find lowest Number
         uses: actions/setup-python@v3
         with: 
-        python-version: '3'
+          python-version: '3'
 
       - name: Test Case 1 
         run: |
