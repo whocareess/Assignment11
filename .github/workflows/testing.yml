@@ -1,0 +1,29 @@
+name: Testing
+
+on:[push]
+
+jobs:
+  running-tests:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: find lowest Number
+        uses: actions/setup-python@v3
+        with: 
+        python-version: '3'
+
+      - name: Test Case 1 
+        run: |
+           python find_lowest_number.py test_data/test1_input.text test1_output.txt
+           diff test1_output.txt test_data/test1_expected.txt
+
+      - name: Test Case 2 
+        run: | 
+            python find_lowest_number.py test_data/test2_input.text test2_output.txt
+            diff test2_output.txt test_data/test2_expected.txt
+            
+      - name: Test Case 3
+        run: | 
+            python find_lowest_number.py test_data/test3_input.text test3_output.txt
+            diff test3_output.txt test_data/test3_expected.txt
